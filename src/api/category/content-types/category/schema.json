@@ -40,6 +40,16 @@
       "type": "component",
       "repeatable": false,
       "component": "page-properties.seo"
+    },
+    "subcategories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subcategory.subcategory"
+    },
+    "coffees": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::coffee.coffee"
     }
   }
 }
