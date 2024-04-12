@@ -4,7 +4,8 @@
   "info": {
     "singularName": "coffee",
     "pluralName": "coffees",
-    "displayName": "Coffee"
+    "displayName": "Coffee",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,23 +13,24 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
-    "Information": {
+    "information": {
       "type": "richtext"
     },
     "Thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "slug": {
       "type": "uid",
       "targetField": "title",
-      "required": true
+      "required": false
     }
   }
 }

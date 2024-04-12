@@ -905,15 +905,16 @@ export interface ApiCoffeeCoffee extends Schema.CollectionType {
     singularName: 'coffee';
     pluralName: 'coffees';
     displayName: 'Coffee';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    Information: Attribute.RichText;
+    title: Attribute.Text & Attribute.Required;
+    information: Attribute.RichText;
     Thumbnail: Attribute.Media;
-    slug: Attribute.UID<'api::coffee.coffee', 'title'> & Attribute.Required;
+    slug: Attribute.UID<'api::coffee.coffee', 'title'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
