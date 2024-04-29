@@ -915,6 +915,7 @@ export interface ApiCoffeeCoffee extends Schema.CollectionType {
     information: Attribute.RichText;
     Thumbnail: Attribute.Media;
     slug: Attribute.UID<'api::coffee.coffee', 'title'>;
+    Fact: Attribute.Component<'nutritional-facts.fact', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -985,6 +986,73 @@ export interface ApiMenuMenu extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::menu.menu', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPartnerPartner extends Schema.CollectionType {
+  collectionName: 'partners';
+  info: {
+    singularName: 'partner';
+    pluralName: 'partners';
+    displayName: 'Partner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    banner: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::partner.partner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::partner.partner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiStoreStore extends Schema.CollectionType {
+  collectionName: 'stores';
+  info: {
+    singularName: 'store';
+    pluralName: 'stores';
+    displayName: 'Store';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    direction: Attribute.String;
+    telephone: Attribute.String & Attribute.Required;
+    lng: Attribute.String;
+    lat: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::store.store',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::store.store',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1087,6 +1155,8 @@ declare module '@strapi/types' {
       'api::coffee.coffee': ApiCoffeeCoffee;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::menu.menu': ApiMenuMenu;
+      'api::partner.partner': ApiPartnerPartner;
+      'api::store.store': ApiStoreStore;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
       'api::worker.worker': ApiWorkerWorker;
     }

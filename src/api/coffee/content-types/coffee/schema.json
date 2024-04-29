@@ -31,6 +31,11 @@
       "type": "uid",
       "targetField": "title",
       "required": false
+    },
+    "Fact": {
+      "type": "component",
+      "repeatable": true,
+      "component": "nutritional-facts.fact"
     }
   }
 }
