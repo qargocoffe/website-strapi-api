@@ -825,6 +825,37 @@ export interface ApiAboutAbout extends Schema.SingleType {
   };
 }
 
+export interface ApiAllergenAllergen extends Schema.CollectionType {
+  collectionName: 'allergens';
+  info: {
+    singularName: 'allergen';
+    pluralName: 'allergens';
+    displayName: 'Allergen';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::allergen.allergen',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::allergen.allergen',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBlogBlog extends Schema.CollectionType {
   collectionName: 'blogs';
   info: {
@@ -916,6 +947,11 @@ export interface ApiCoffeeCoffee extends Schema.CollectionType {
     Thumbnail: Attribute.Media;
     slug: Attribute.UID<'api::coffee.coffee', 'title'>;
     Fact: Attribute.Component<'nutritional-facts.fact', true>;
+    allergens: Attribute.Relation<
+      'api::coffee.coffee',
+      'oneToMany',
+      'api::allergen.allergen'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1018,6 +1054,28 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSpecSpec extends Schema.CollectionType {
+  collectionName: 'specs';
+  info: {
+    singularName: 'spec';
+    pluralName: 'specs';
+    displayName: 'Spec';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::spec.spec', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::spec.spec', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1150,12 +1208,14 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about.about': ApiAboutAbout;
+      'api::allergen.allergen': ApiAllergenAllergen;
       'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
       'api::coffee.coffee': ApiCoffeeCoffee;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::menu.menu': ApiMenuMenu;
       'api::partner.partner': ApiPartnerPartner;
+      'api::spec.spec': ApiSpecSpec;
       'api::store.store': ApiStoreStore;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
       'api::worker.worker': ApiWorkerWorker;
