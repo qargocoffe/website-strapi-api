@@ -1003,19 +1003,22 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
   };
 }
 
-export interface ApiMenuMenu extends Schema.CollectionType {
+export interface ApiMenuMenu extends Schema.SingleType {
   collectionName: 'menus';
   info: {
     singularName: 'menu';
     pluralName: 'menus';
     displayName: 'Menu';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    slug: Attribute.UID<'api::menu.menu', 'title'> & Attribute.Required;
+    title: Attribute.String;
+    logo: Attribute.Media;
+    company: Attribute.Media;
+    menu: Attribute.Component<'menu-items.menu', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

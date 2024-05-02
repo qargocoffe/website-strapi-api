@@ -1,5 +1,30 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface MenuItemsItems extends Schema.Component {
+  collectionName: 'components_menu_items_items';
+  info: {
+    displayName: 'Items';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    slug: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface MenuItemsMenu extends Schema.Component {
+  collectionName: 'components_menu_items_menus';
+  info: {
+    displayName: 'Menu';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    slug: Attribute.String & Attribute.Required;
+    Items: Attribute.Component<'menu-items.items', true>;
+  };
+}
+
 export interface NutritionalFactsFactItem extends Schema.Component {
   collectionName: 'components_nutritional_facts_fact_items';
   info: {
@@ -53,6 +78,8 @@ export interface PagePropertiesSeo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'menu-items.items': MenuItemsItems;
+      'menu-items.menu': MenuItemsMenu;
       'nutritional-facts.fact-item': NutritionalFactsFactItem;
       'nutritional-facts.fact': NutritionalFactsFact;
       'page-properties.meta-tag': PagePropertiesMetaTag;
