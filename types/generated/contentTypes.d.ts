@@ -868,13 +868,13 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String & Attribute.Required;
-    Description: Attribute.String & Attribute.Required;
-    Thumbnail: Attribute.Media & Attribute.Required;
-    Publishied: Attribute.DateTime & Attribute.Required;
-    Content: Attribute.RichText & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
+    thumbnail: Attribute.Media & Attribute.Required;
+    publishied: Attribute.DateTime & Attribute.Required;
+    content: Attribute.RichText & Attribute.Required;
     SEO: Attribute.Component<'page-properties.seo'>;
-    slug: Attribute.UID<'api::blog.blog', 'Title'>;
+    slug: Attribute.UID;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
