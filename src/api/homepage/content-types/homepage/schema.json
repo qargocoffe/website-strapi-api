@@ -4,7 +4,8 @@
   "info": {
     "singularName": "homepage",
     "pluralName": "homepages",
-    "displayName": "Homepage"
+    "displayName": "Homepage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,17 +21,22 @@
       "required": true
     },
     "Picture": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Link": {
       "type": "string",
       "required": true,
       "default": "Menu"
+    },
+    "Banners": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.banner-homepage"
     }
   }
 }

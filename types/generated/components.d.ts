@@ -1,5 +1,16 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface HomepageBannerHomepage extends Schema.Component {
+  collectionName: 'components_homepage_banner_homepages';
+  info: {
+    displayName: 'Banner-Homepage';
+  };
+  attributes: {
+    slug: Attribute.String & Attribute.Required;
+    banner: Attribute.Media;
+  };
+}
+
 export interface MenuItemsItems extends Schema.Component {
   collectionName: 'components_menu_items_items';
   info: {
@@ -78,6 +89,7 @@ export interface PagePropertiesSeo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'homepage.banner-homepage': HomepageBannerHomepage;
       'menu-items.items': MenuItemsItems;
       'menu-items.menu': MenuItemsMenu;
       'nutritional-facts.fact-item': NutritionalFactsFactItem;

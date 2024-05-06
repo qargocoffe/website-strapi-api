@@ -976,6 +976,7 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
     singularName: 'homepage';
     pluralName: 'homepages';
     displayName: 'Homepage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -985,6 +986,7 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
     Description: Attribute.Text & Attribute.Required;
     Picture: Attribute.Media & Attribute.Required;
     Link: Attribute.String & Attribute.Required & Attribute.DefaultTo<'Menu'>;
+    Banners: Attribute.Component<'homepage.banner-homepage', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
