@@ -982,11 +982,11 @@ export interface ApiHomepageHomepage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String & Attribute.Required;
-    Description: Attribute.Text & Attribute.Required;
-    Picture: Attribute.Media & Attribute.Required;
-    Link: Attribute.String & Attribute.Required & Attribute.DefaultTo<'Menu'>;
-    Banners: Attribute.Component<'homepage.banner-homepage', true>;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    picture: Attribute.Media & Attribute.Required;
+    link: Attribute.String & Attribute.Required & Attribute.DefaultTo<'Menu'>;
+    banners: Attribute.Component<'homepage.banner-homepage', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
