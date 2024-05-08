@@ -1037,6 +1037,7 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
     singularName: 'partner';
     pluralName: 'partners';
     displayName: 'Partner';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1045,6 +1046,7 @@ export interface ApiPartnerPartner extends Schema.CollectionType {
     title: Attribute.String;
     description: Attribute.Text;
     banner: Attribute.Media;
+    logo: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
