@@ -897,10 +897,10 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String & Attribute.Required & Attribute.Unique;
+    title: Attribute.String & Attribute.Required & Attribute.Unique;
     slug: Attribute.UID;
-    Status: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
-    Thumbnail: Attribute.Media;
+    status: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
+    thumbnail: Attribute.Media;
     SEO: Attribute.Component<'page-properties.seo'>;
     subcategories: Attribute.Relation<
       'api::category.category',
